@@ -302,12 +302,13 @@ input_data = input_data[feature_columns]
 
 st.sidebar.divider()
 
-if st.sidebar.button("🔍 Prediksi GPA", use_container_width=True):
-
-    # Scaling data input
+if st.sidebar.button(
+    "🔍 Prediksi GPA",
+    use_container_width=True,
+    key="tombol_prediksi_gpa"
+):
     input_scaled = scaler.transform(input_data)
 
-    # Melakukan prediksi
     hasil_prediksi = model.predict(input_scaled)[0]
 
     st.subheader("🎯 Hasil Prediksi GPA")
@@ -317,8 +318,8 @@ if st.sidebar.button("🔍 Prediksi GPA", use_container_width=True):
     )
 
     st.info(
-        "Hasil ini merupakan estimasi berdasarkan pola yang dipelajari "
-        "model Linear Regression dari data pelatihan."
+        "Hasil ini merupakan estimasi berdasarkan pola "
+        "yang dipelajari model Linear Regression dari data pelatihan."
     )
 
 # ==========================================
